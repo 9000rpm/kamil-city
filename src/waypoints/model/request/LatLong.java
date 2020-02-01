@@ -1,4 +1,4 @@
-package waypoints.model;
+package waypoints.model.request;
 
 public class LatLong {
 	
