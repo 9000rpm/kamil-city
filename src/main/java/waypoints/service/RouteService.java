@@ -21,9 +21,9 @@ import waypoints.model.response.Weatheratdest;
 public class RouteService {
 	
 	private static final String WAYPOINT = "waypoint";
+	private static final String API_KEY = "O_0es3AG8oJG8DeyKhhy4uQLlFAZ6LeqT7J2UhOetmI";
 
 	public ResponseModel getRoute (RequestModel requestModel) {
-		//https://route.ls.hereapi.com/routing/7.2/calculateroute.json?waypoint0=40.7480%2C-73.9862&waypoint1=40.7500%2C-73.9933&waypoint2=40.7558%2C-73.9869&mode=fastest%3Bcar&apiKey=O_0es3AG8oJG8DeyKhhy4uQLlFAZ6LeqT7J2UhOetmI
     	Client client = ClientBuilder.newClient();
     	WebTarget target = client.target("https://route.ls.hereapi.com/routing/7.2/calculateroute.json");
     	int count = 0;
@@ -32,7 +32,7 @@ public class RouteService {
     		count++;
     	}
     	target = target.queryParam("mode", "fastest;car");
-    	target = target.queryParam("apiKey", "O_0es3AG8oJG8DeyKhhy4uQLlFAZ6LeqT7J2UhOetmI");
+    	target = target.queryParam("apiKey", API_KEY);
     	HereMapsResponse hereMapsResponse = target.request().get(HereMapsResponse.class);
     	
     	ResponseModel responseModel = new ResponseModel();
@@ -62,7 +62,7 @@ public class RouteService {
     						.queryParam("latitude", lat)
     						.queryParam("longitude", lng)
     						.queryParam("oneobservation", true)
-    						.queryParam("apiKey", "O_0es3AG8oJG8DeyKhhy4uQLlFAZ6LeqT7J2UhOetmI");
+    						.queryParam("apiKey", API_KEY);
     	HereMapsWeatherResponse hereMapsWeatherResponse = target.request().get(HereMapsWeatherResponse.class);
     
     	Weatheratdest weatheratdest = new Weatheratdest();

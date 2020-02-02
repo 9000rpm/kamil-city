@@ -1,0 +1,24 @@
+apply plugin:'java'
+apply plugin:'war'
+apply plugin:'eclipse-wtp'
+
+version = '1.0'
+group = 'com.waypoints'
+sourceCompatibility = 1.8
+
+war {
+	webXml = file('WebContent/WEB-INF/web.xml')
+	from('WebContent/WEB-INF/') {
+        include 'glassfish-web.xml'
+        into('WEB-INF')
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile 'javax:javaee-api:8.0'
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'    
+}

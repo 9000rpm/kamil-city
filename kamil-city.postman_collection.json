@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "248f12b4-6d3f-4cc0-ae57-c0836d8f81ff",
+		"name": "kamil-city",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/waypoints/route/ping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"waypoints",
+						"route",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Auth Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\" : \"john@doe.com\",\n\t\"password\" : \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/waypoints/auth/getToken",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"waypoints",
+						"auth",
+						"getToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Waypoint Routes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJqb2huQGRvZS5jb20iLCJpYXQiOjE1ODA2Nzk1MDUsInN1YiI6Ik1lIiwiaXNzIjoiSm9lIn0.sV6KBGZyBLqul0STSpn6_Za32jBqXc46Lkku63MXv58",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"departuredate\" : 1580387892,\n\t\"waypoints\" : [\n\t\t{\n\t\t\t\"lat\" : 40.7480,\n\t\t\t\"lng\" : -73.9862\n\t\t},\n\t\t{\n\t\t\t\"lat\" : 40.7500,\n\t\t\t\"lng\" : -73.9933\n\t\t},\n\t\t{\n\t\t\t\"lat\" : 40.7558,\n\t\t\t\"lng\" : -73.9869\n\t\t}\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/waypoints/route/segments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"waypoints",
+						"route",
+						"segments"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
